@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lara & Jena 💖</title>
+  <link rel="icon" href="corazon.png">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hoja {
+      background: white;
+      padding: 40px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 25px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button, a.boton {
+      margin-top: 25px;
+      background: #ff6f91;
+      border: none;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .nav button {
+      margin: 10px;
+    }
+
+    .texto {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .sobre-cuerpo {
+      border: 3px solid #ff6f91;
+      border-radius: 20px;
+      padding: 50px 20px;
+      background: #fff5f7;
+      font-size: 1.3em;
+    }
+
+    /* CALENDARIO */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      max-width: 360px;
+      margin: 20px auto;
+    }
+
+    .dia {
+      padding: 10px 0;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      font-weight: 500;
+    }
+
+    .dia.nombre, .dia.vacio {
+      background: transparent;
+      box-shadow: none;
+      font-weight: bold;
+    }
+
+    .dia.marcado {
+      background: #ff6f91;
+      color: white;
+      position: relative;
+    }
+
+    .dia.marcado::after {
+      content: "❤️";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    img {
+      max-width: 320px;
+      width: 90%;
+      border-radius: 25px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      margin: 20px auto;
+      display: block;
+    }
+    /* ANIMACIÓN DE HOJAS */
+.hoja {
+  animation: aparecer 0.6s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.sobre-cuerpo {
+  animation: latido 2s infinite;
+}
+
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+  </style>
+</head>
+
+<body>
+
+<!-- HOJA 1 - SOBRE -->
+<section class="hoja" id="hoja1">
+  <div class="sobre-cuerpo">
+    <p>Para: <strong>Jena</strong></p>
+    <p>De: <strong>Lara</strong></p>
+  </div>
+  <button onclick="mostrarHoja(2)">Abrir sobre 💌</button>
+</section>
+
+<!-- HOJA 2 - CALENDARIO -->
+<section class="hoja hidden" id="hoja2">
+  <h2>Octubre 2025 🗓️</h2>
+
+  <div class="grid">
+    <div class="dia nombre">L</div><div class="dia nombre">M</div><div class="dia nombre">X</div>
+    <div class="dia nombre">J</div><div class="dia nombre">V</div><div class="dia nombre">S</div><div class="dia nombre">D</div>
+
+    <div class="dia vacio"></div><div class="dia vacio"></div>
+    <div class="dia">1</div><div class="dia">2</div><div class="dia">3</div>
+    <div class="dia marcado">4</div><div class="dia">5</div>
+    <div class="dia">6</div><div class="dia">7</div><div class="dia">8</div>
+    <div class="dia">9</div><div class="dia">10</div><div class="dia">11</div>
+    <div class="dia">12</div><div class="dia">13</div><div class="dia">14</div>
+    <div class="dia">15</div><div class="dia">16</div><div class="dia">17</div>
+    <div class="dia">18</div><div class="dia">19</div>
+  </div>
+
+  <p id="contador" class="texto"></p>
+
+  <div class="nav">
+    <button onclick="mostrarHoja(1)">⬅ Volver</button>
+    <button onclick="mostrarHoja(3)">Siguiente ❤️</button>
+  </div>
+</section>
+
+<!-- HOJA 3 - FOTO -->
+<section class="hoja hidden" id="hoja3">
+  <h2>Para que no te olvides de lo linda que soy 📸</h2>
+  <img src="foto.jpg" alt="Nuestra foto">
+  <p class="texto">Chiste, te extraño mucho. Gracias por haber compartido estos meses de tu vida conmigo, te amo con todo lo que soy mi corazón de melón ❤️</p>
+
+  <div class="nav">
+    <button onclick="mostrarHoja(2)">⬅ Volver</button>
+    <button onclick="mostrarHoja(4)">Siguiente 💕</button>
+  </div>
+</section>
+
+<!-- HOJA 4 - CANCIÓN -->
+<section class="hoja hidden" id="hoja4">
+  <h2>(Otra) Canción que te dedico 🎶</h2>
+
+  <p class="texto">
+    Una vez más, la letra dice exactamente cómo me haces sentir ❤️
+  </p>
+
+  <a
+    href="https://youtu.be/PQlG1gznMBE?si=E36bL4PNs_EPoEs7"
+    target="_blank"
+    class="boton"
+  >
+    Clickeá acá si querés escuchar 💖 sino bueno chau :p
+  </a>
+
+  <div class="nav">
+    <button onclick="mostrarHoja(3)">⬅ Volver</button>
+    <button onclick="mostrarHoja(1)">Volver al inicio 💌</button>
+  </div>
+</section>
+
+<script>
+  function mostrarHoja(numero) {
+    document.querySelectorAll('.hoja').forEach(h => h.classList.add('hidden'));
+    const hoja = document.getElementById('hoja' + numero);
+    if (hoja) hoja.classList.remove('hidden');
+  }
+
+  // CONTADOR DE DÍAS JUNTOS
+  const fechaInicio = new Date(2025, 9, 4); // 4 de octubre de 2025
+  const hoy = new Date();
+  const dias = Math.floor((hoy - fechaInicio) / (1000 * 60 * 60 * 24));
+
+  const contador = document.getElementById('contador');
+  if (contador) {
+    contador.innerText = `Llevamos ${dias} días juntos ❤️`;
+  }
+</script>
+
+</body>
+</html>
